@@ -620,7 +620,7 @@ nav {
 
 /* Timeline Section */
 .timeline {
-    background: #1E0A2E;  /* Dark purple background */
+    background-color: #000000;
     padding: 4rem 2rem;
     color: #ffffff;
 }
@@ -686,7 +686,7 @@ nav {
 .timeline-content {
     width: 45%;
     padding: 2rem;
-    background: rgba(138, 127, 199, 0.1);
+    background-color: rgba(138, 127, 199, 0.08);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 12px;
     backdrop-filter: blur(8px);
