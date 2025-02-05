@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="./assets/imgs/InnoVerse.png" />
+    <title>Innoverse 2.O</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+    <div id="loading-screen">
+        <div class="loading-content">
+            <p class="loading-text">Loading<span class="cursor">....</span></p>
+            <p class="loading-percentage">0%</p>
+        </div>
+    </div>
+    <div class="main-content">
+        <nav>
+            <div class="nav-container">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="assets/imgs/InnoVerse.png" alt="InnoVerse Logo">
+                    </a>
+                </div>
+                <button class="mobile-menu-btn" aria-label="Toggle mobile menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-links">
+                    <li><a href="/" class="active">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="people.html">People</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <section id="home" class="hero">
+            <canvas id="canvas"></canvas>
+            <div class="hero-content">
+                <h1>Innoverse 2.O</h1>
+                <p>Join us for a 24-hour coding marathon to build innovative solutions!</p>
+                <div class="event-details">
+                    <img src="assets/imgs/event.png" alt=""><span>11 - 12 March, 2025</span>
+                </div>
+                <a href="#register" class="cta">Register Now</a>
+            </div>
+            <div class="hero-image-container">
+                <img src="assets/imgs/img1.jpg" alt="Hackathon" class="hero-image">
+            </div>
+        </section>
+
+        <div id="qrModal" class="modal">
+            <div class="modal-content">
+                <span class="close-button">&times;</span>
+                <div class="qr-container">
+                    <h2>Scan to Register</h2>
+                    <img src="assets/imgs/qrscan.jpg" alt="">
+                    <p>Open your camera app to scan</p>
+                </div>
+            </div>
+        </div>
+
+        <section id="about" class="about">
+            <h2>About Innoverse</h2>
+            <p>Innoverse is a 24-hour hackathon designed to ignite creativity and foster innovation. With an open-theme
+                format, participants are free to explore and create impactful solutions without constraints, encouraging
+                diverse ideas and imaginative problem-solving.</p>
+            <p>The Innoverse 2.0 event will take place on March 11-12, 2023 at Woxsen University in Hyderabad, India.
+                The 24-hour hackathon will start at 12pm on March 12th. There is a prize pool of ₹2,50,000 and the top
+                10 teams will receive internship opportunities.</p>
+
+            <!-- Feature Cards -->
+            <div class="feature-cards">
+                <div class="feature-card">
+                    <i class="fas fa-code"></i>
+                    <h3>Code & Create</h3>
+                    <p>Build innovative solutions using cutting-edge technologies</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-users"></i>
+                    <h3>Collaborate</h3>
+                    <p>Work with talented developers from around the world</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-trophy"></i>
+                    <h3>Win Prizes</h3>
+                    <p>Compete for exciting prizes and recognition</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="timeline">
+            <h2>Timeline</h2>
+
+            <div class="timeline-container">
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <span class="date">31 Jan 2025, 12:00 AM IST</span>
+                        <h3>Registrations Starts</h3>
+                        <p>It's time to take the first step toward an incredible hacking experience. Registrations for
+                            our hackathon are now open! Take advantage of the opportunity to showcase your skills,
+                            collaborate with fellow innovators, and compete for exciting prizes.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <span class="date">15 Feb 2025, 12:00 AM IST</span>
+                        <h3>Registrations Deadline</h3>
+                        <p>The clock is ticking! Don't miss your chance to be part of an unforgettable hackathon
+                            experience. Register now and join a community of passionate innovators, ready to tackle
+                            challenges and bring creative solutions to life. Secure your spot, and get ready for a
+                            journey of collaboration, competition, and growth. Your future begins here!</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <span class="date">25 Feb 25, 10:00 AM IST</span>
+                        <h3>Initial Presentation (Starting)</h3>
+                        <p>The journey begins! The clock starts ticking as teams prepare to showcase their ideas in the
+                            initial presentation round. This is your opportunity to present your innovative solutions,
+                            get valuable feedback, and set the stage for the next phase of the hackathon. Make it count
+                            and let your creativity shine!</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <span class="date">28 Feb 25, 04:30 PM IST</span>
+                        <h3>Initial Presentation (Closing)</h3>
+                        <p>The countdown ends here! The final opportunity to submit your initial presentation. Ensure
+                            your team's vision is clearly communicated, and your solution is ready to impress the
+                            judges. This is your moment to make a lasting impact and pave the way for the upcoming
+                            stages of the hackathon.</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <span class="date">11 Mar 25, 10:00 AM IST</span>
+                        <h3>Hackathon (Start)</h3>
+                        <p>The wait is finally over! The hackathon officially begins, and the clock starts ticking. It's
+                            time to dive into coding, innovating, and collaborating with your team to create something
+                            extraordinary. Whether you're building a new product, solving a challenging problem, or
+                            disrupting industries, this is where your ideas come to life. Get ready for an intense
+                            24-hour sprint!</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <span class="date">12 Mar 25, 10:00 AM IST</span>
+                        <h3>Hackathon (End)</h3>
+                        <p>All good things must come to an end! After 48 hours of non-stop innovation, the hackathon
+                            concludes. This is the final moment to polish your solution, prepare your presentation, and
+                            get ready to impress the judges. Reflect on the journey, celebrate your achievements, and
+                            look forward to the thrilling finale as we announce the winning teams!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="countdown">
+            <div class="countdown-text">
+                <h2>Countdown</h2>
+                <p>Join us for the hackathon! Time remaining:</p>
+            </div>
+            <div class="countdown-container">
+                <div class="countdown-timer">
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="days"></span>
+                        <p>Days</p>
+                    </div>:
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="hours"></span>
+                        <p>Hours</p>
+                    </div>:
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="minutes"></span>
+                        <p>Minutes</p>
+                    </div>:
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="seconds"></span>
+                        <p>Seconds</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="event-glimpses">
+            <h2>Glimpses of Our Events</h2>
+            <div class="grid-container">
+                <div class="grid-item">
+                    <img src="assets/imgs/img2.jpg" alt="Event 1">
+                </div>
+                <div class="grid-item">
+                    <img src="assets/imgs/img11.jpg" alt="Event 2">
+                </div>
+                <div class="grid-item">
+                    <img src="assets/imgs/img3.jpg" alt="Event 3">
+                </div>
+                <div class="grid-item">
+                    <img src="assets/imgs/group.jpg" alt="Event 4">
+                </div>
+                <div class="grid-item">
+                    <img src="assets/imgs/img5.jpg" alt="Event 5">
+                </div>
+                <div class="grid-item">
+                    <img src="assets/imgs/img6.jpg" alt="Event 6">
+                </div>
+            </div>
+        </section>
+        <footer id="contact">
+            <p>&copy; <span id="year"></span> Innoverse Hackathon. All rights reserved.</p>
+            <p>Contact us: cotd@woxsen.edu.in</p>
+        </footer>
+    </div>
+
+    <script src="assets/js/script.js"></script>
+    <script>
+        // Animate sections on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeUp 0.8s ease forwards';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.about, .schedule').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+
+</html>

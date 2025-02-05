@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="./assets/imgs/InnoVerse.png" />
+    <title>Innoverse 2.O</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+    <canvas id="canvas"></canvas>
+    <div id="loading-screen">
+        <div class="loading-content">
+            <p class="loading-text">Loading<span class="cursor">....</span></p>
+            <p class="loading-percentage">0%</p>
+        </div>
+    </div>
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/imgs/InnoVerse.png" alt="InnoVerse Logo">
+                </a>
+            </div>
+            <button class="mobile-menu-btn" aria-label="Toggle mobile menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="people.html">People</a></li>
+                <li><a href="contact.html" class="active">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+    <header class="contact-header">
+        <h1>Contact Us</h1>
+        <p>Have questions about Innoverse 2.0? We'd love to hear from you.</p>
+    </header>
+
+    <div class="full-width-black">
+        <main class="contact-container">
+            <div class="contact-info">
+                <div class="info-card">
+                    <div>
+                        <h3>Naveen Kumar</h3>
+                        <p>Email: naveenkumar@woxsen.edu.in</p>
+                        <p>Phone: +91 7416387771</p>
+                    </div>
+                    <div>
+                        <h3>Rudra Ayachit</h3>
+                        <p>Email: rudra.ayachit_2027@woxsen.edu.in</p>
+                        <p>Phone: +91 9112269317</p>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <h3>Join our WhatsApp Group</h3>
+                    <p><a href="https://wa.me/yourwhatsapplink" target="_blank">Join WhatsApp Group</a></p>
+                </div>
+                <div class="info-card">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#" title="Instagram"><img src="assets/imgs/instagram_icon.png" alt=""></a>
+                        <a href="#" title="LinkedIn"><img src="assets/imgs/linkedin_icon.png" alt=""></a>
+                        <a href="#" title="Twitter"><img src="assets/imgs/twitter.png" alt=""></a>
+                    </div>
+                </div>
+            </div>
+            <div class="info-card">
+                <h3>Visit Us</h3>
+                <p>Woxsen University<br>
+                    Hyderabad - Sadasivpet<br>
+                    Kamkole, Telangana 502345</p>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d972.310709362275!2d77.7971452!3d17.6496171!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc9533c6aaaaaab%3A0x4f10ac8424d0d1dc!2sWoxsen%20University!5e0!3m2!1sen!2sin!4v1706789012345!5m2!1sen!2sin">
+                </iframe>
+            </div>
+        </main>
+    </div>
+
+    <footer id="contact">
+        <p>&copy; <span id="year"></span> Innoverse Hackathon. All rights reserved.</p>
+        <p>Contact us: cotd@woxsen.edu.in</p>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Form submission handling
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Show success message
+            const successMessage = document.querySelector('.success-message');
+            successMessage.style.display = 'block';
+
+            // Reset form
+            this.reset();
+
+            // Hide success message after 5 seconds
+            setTimeout(() => {
+                successMessage.style.display = 'none';
+            }, 5000);
+        });
+
+        // Animation for sections on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeUp 0.8s ease forwards';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.contact-form, .contact-info').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+
+</html>

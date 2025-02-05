@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="./assets/imgs/InnoVerse.png" />
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <title>Innoverse 2.O</title>
+    <style>
+        /* About Hero Section */
+        .about-hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 5rem;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 3rem;
+            /* background: linear-gradient(135deg, #4B3B96, #8A7FC7); */
+            color: #ffffff;
+        }
+
+        .about-hero-content {
+            max-width: 800px;
+            z-index: 2;
+        }
+
+        .about-hero-heading {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            margin-bottom: 1.5rem;
+            background: linear-gradient(45deg, #ffffff, #e0e0e0);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: gradient 3s ease infinite;
+            letter-spacing: -0.02em;
+        }
+
+        .about-hero-subheading {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .about-hero-description {
+            font-size: clamp(1.1rem, 2vw, 1.25rem);
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+        }
+
+        .about-hero-cta {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        /* Gradient Animation */
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        /* Main content enhancements */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 6rem 2rem;
+        }
+
+        /* Full-width black background div */
+        .full-width-black {
+            width: 100vw;
+            background-color: black;
+            color: white;
+            padding: 2rem 10rem;
+            text-align: center;
+            margin: 0;
+            position: relative;
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
+        }
+
+        section {
+            background: rgba(138, 127, 199, 0.05);
+            border: 1px solid rgba(138, 127, 199, 0.1);
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            margin-bottom: 3rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(138, 127, 199, 0.1);
+            border-color: rgba(138, 127, 199, 0.2);
+            background: rgba(138, 127, 199, 0.08);
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            background: linear-gradient(45deg, #8A7FC7, #4B3B96, #8A7FC7);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: gradient 3s ease infinite;
+        }
+
+        /* Winners Grid */
+        .winners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .winner-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .winner-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(138, 127, 199, 0.2);
+        }
+
+        .winner-card img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+
+        .winner-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #8A7FC7;
+        }
+
+        .winner-card p {
+            font-size: 1rem;
+            color: #e0e0e0;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Poster & Brochure Section */
+        .poster-brochure-section {
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+
+        .poster-brochure-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .poster,
+        .brochure {
+            flex: 0 1 400px;
+            transition: transform 0.3s ease;
+        }
+
+        .poster img,
+        .brochure img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(138, 127, 199, 0.2);
+        }
+
+        .poster:hover,
+        .brochure:hover {
+            transform: scale(1.02);
+        }
+
+        /* Event Details Section */
+        .innoverse-event-details {
+            background: rgba(138, 127, 199, 0.08);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 3rem 0;
+        }
+
+        .innoverse-event-details ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .innoverse-event-details li {
+            background: rgba(138, 127, 199, 0.1);
+            padding: 1rem;
+            margin: 0.5rem 0;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+
+        .innoverse-event-details li:hover {
+            background: rgba(138, 127, 199, 0.2);
+        }
+
+        .travel-accommodation {
+            background-color: rgba(138, 127, 199, 0.08);
+            border-radius: 12px;
+            padding: 25px;
+            max-width: 800px;
+            margin: 20px auto;
+            box-shadow: 0 4px 6px rgba(138, 127, 199, 0.2);
+        }
+
+        .travel-accommodation h2 {
+            color: #8A7FC7;
+            border-bottom: 2px solid #4B3B96;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+
+        .travel-accommodation p {
+            color: #e0e0e0;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .travel-accommodation ul {
+            list-style: none;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 15px 15px 15px 40px;
+            border-left: 4px solid #4B3B96;
+            box-shadow: 0 2px 4px rgba(138, 127, 199, 0.1);
+        }
+
+        .travel-accommodation ul li {
+            color: #ffffff;
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 10px;
+        }
+
+        .travel-accommodation ul li::before {
+            content: '✓';
+            color: #8A7FC7;
+            position: absolute;
+            left: -25px;
+            font-weight: bold;
+        }
+
+        /* Contact Info Section */
+        .contact-info {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            gap: 2rem;
+            background: rgba(138, 127, 199, 0.08);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-top: 3rem;
+        }
+
+        .contact-info div {
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+        }
+
+        .contact-info h3 {
+            color: #8A7FC7;
+            margin-bottom: 1rem;
+        }
+
+        /* Animations */
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            main {
+                padding: 5rem 1rem;
+            }
+
+            section {
+                padding: 2rem 1rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .nav-container {
+                padding: 1rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="loading-screen">
+        <div class="loading-content">
+            <p class="loading-text">Loading<span class="cursor">....</span></p>
+            <p class="loading-percentage">0%</p>
+        </div>
+    </div>
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/imgs/InnoVerse.png" alt="InnoVerse Logo">
+                </a>
+            </div>
+            <button class="mobile-menu-btn" aria-label="Toggle mobile menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="people.html">People</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+    <main>
+        <canvas id="canvas"></canvas>
+        <!-- Hero Section -->
+        <div id="about-hero" class="about-hero">
+            <div class="about-hero-content">
+                <h1 class="about-hero-heading">About Innoverse 2.0</h1>
+                <p class="about-hero-subheading">Igniting Creativity, Fostering Innovation</p>
+                <p class="about-hero-description">
+                    Innoverse is a 24-hour hackathon designed to ignite creativity and foster innovation. With an
+                    open-theme
+                    format, participants are free to explore and create impactful solutions without constraints,
+                    encouraging
+                    diverse ideas and imaginative problem-solving.
+                </p>
+                <!-- <p>The Innoverse 2.0 event will take place on March 11-12, 2023 at Woxsen University in Hyderabad,
+                    India.
+                    The 24-hour hackathon will start at 12pm on March 12th. There is a prize pool of ₹2,50,000 and the
+                    top
+                    10 teams will receive internship opportunities.</p> -->
+                <div class="about-hero-cta">
+                    <a href="#register" class="cta">Register Now</a>
+                    <a href="#schedule" class="cta">View Schedule</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="qrModal" class="modal">
+            <div class="modal-content">
+                <span class="close-button">&times;</span>
+                <div class="qr-container">
+                    <h2>Scan to Register</h2>
+                    <img src="assets/imgs/qrscan.jpg" alt="">
+                    <p>Open your camera app to scan</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="full-width-black">
+            <section class="about-woxsen fade-up">
+                <h2>About Woxsen University</h2>
+                <p>Woxsen University is a premier institution committed to redefining education through innovation and
+                    excellence. Known for its cutting-edge infrastructure and interdisciplinary approach, Woxsen fosters
+                    a
+                    culture of creativity, critical thinking, and collaboration.</p>
+                <p>With a strong focus on entrepreneurship, technology, and global outlook, the university provides
+                    students
+                    with unparalleled opportunities to excel in a rapidly evolving world. Its incubation centers and
+                    industry partnerships make it a hub for innovation and transformative learning.</p>
+                <p>Woxsen University has a fully residential campus of around 200 acres, accommodating over 5,000
+                    students.
+                    The university is situated on the Mumbai-Hyderabad Highway NH65, around 30 km from Sangareddy and 75
+                    km
+                    from Hyderabad.</p>
+            </section>
+
+            <section class="about-cotd fade-up">
+                <h2>About the Centre of Talent Development (COTD)</h2>
+                <p>The Centre of Talent Development (COTD) at Woxsen University is a dynamic hub dedicated to empowering
+                    students with essential life skills and bridging the gap between academic excellence and industry
+                    readiness. Aligned with Woxsen's mission to shape future-ready leaders, COTD equips students with
+                    vital
+                    skills in communication, problem-solving, and teamwork.</p>
+                <p>Through innovative events like Innoverse 2.0, leadership series with industry trailblazers,
+                    thought-provoking book launches, and engaging Olympiads, COTD fosters creativity, collaboration, and
+                    critical thinking amongst students, preparing them for a competitive professional world.</p>
+            </section>
+
+            <section class="innoverse-event-details fade-up">
+                <h2>Event Details</h2>
+                <p>INNOVERSE 2.0 Event Schedule:</p>
+                <ul>
+                    <li><strong>Dates:</strong> 10, 11, 12 & 13th March</li>
+                    <li><strong>Hackathon Duration:</strong> 24 Hours (11th and 12th)</li>
+                    <li><strong>Location:</strong> Woxsen University, Hyderabad, India</li>
+                </ul>
+            </section>
+
+            <section class="poster-brochure-section">
+                <h2>Poster & Brochure</h2>
+                <div class="poster-brochure-container">
+                    <!-- Poster Section -->
+                    <div class="poster">
+                        <img src="assets/imgs/poster.jpg" alt="Innoverse Poster">
+                    </div>
+                    <!-- Brochure Section -->
+                    <div class="brochure">
+                        <img src="assets/imgs/brochure.png" alt="Innoverse Brochure">
+                        <div class="brochure-buttons">
+                            <a href="assets/imgs/INNOVERSE.pdf" target="_blank" class="cta">View Brochure</a>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+
+            <!-- <section class="sponsor-info fade-up">
+            <h2>Sponsorship Opportunities</h2>
+            <h3>Creator's Circle (₹75K Package)</h3>
+            <ul>
+                <li>Logo placement on event materials and social media</li>
+                <li>Special recognition in opening/closing ceremonies</li>
+                <li>Dedicated booth space for product/service display</li>
+                <li>Social media mentions</li>
+                <li>Inclusion in the sponsor's section of event promotions</li>
+            </ul>
+            <h3>Innovator's League (₹1.5 Lakh Package)</h3>
+            <ul>
+                <li>Title sponsor recognition on all event branding</li>
+                <li>Acknowledgment in all Innoverse related events, banners, brochures, and social media posts</li>
+                <li>Opportunity to address participants during the opening/closing ceremony</li>
+                <li>Dedicated promotional posts on event pages</li>
+                <li>Prominent booth space for product/service showcase</li>
+                <li>Inclusion in press releases and media coverage</li>
+            </ul>
+            <p>We can also provide customized plans based on your marketing requirements and expectations.</p>
+        </section> -->
+
+            <section class="previous-innoverse fade-up">
+                <h2>Recap of Previous INNOVERSE</h2>
+                <p>The previous INNOVERSE, held on September 27 and 28, was an intense internal university competition
+                    that brought together over 100 participants across 25 teams. The 12-hour hackathon was a platform
+                    for
+                    tech enthusiasts, innovators, and problem solvers to showcase their creativity.</p>
+                <p>Participants engaged in a night of rigorous brainstorming, coding, and pitching, working tirelessly
+                    to craft solutions to real-world challenges. The event demonstrated remarkable innovation and
+                    teamwork,
+                    with an infectious energy that filled the room.</p>
+                <p>The final presentations to the jury were awe-inspiring, featuring a diverse range of ideas from
+                    cutting-edge prototypes to impactful community solutions. The event concluded with a grand prize
+                    distribution ceremony, awarding a 50K prize pool to the top teams.</p>
+
+                <!-- Top Three Winners Section -->
+                <div class="winners-grid">
+                    <div class="winner-card">
+                        <img src="assets/imgs/W1.JPG" alt="Winner 1">
+                        <h3>1st Place</h3>
+                        <p>Team Innovators</p>
+                        <p>Project: AI-Powered Waste Management</p>
+                    </div>
+                    <div class="winner-card">
+                        <img src="assets/imgs/W3.JPG" alt="Winner 2">
+                        <h3>2nd Place</h3>
+                        <p>Team Visionaries</p>
+                        <p>Project: Smart Agriculture System</p>
+                    </div>
+                    <div class="winner-card">
+                        <img src="assets/imgs/W2.JPG" alt="Winner 3">
+                        <h3>3rd Place</h3>
+                        <p>Team Trailblazers</p>
+                        <p>Project: Blockchain for Voting</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="travel-accommodation fade-up">
+                <h2>Travel and Accommodation</h2>
+                <p>Innoverse 2.0 will take place at Woxsen University, located on the Mumbai-Hyderabad Highway NH65. The
+                    university is:</p>
+                <ul>
+                    <li>Approximately 30 km from Sangareddy</li>
+                    <li>Around 75 km from Hyderabad</li>
+                    <li>Situated on a fully residential campus spanning 200 acres</li>
+                </ul>
+                <p>Participants are encouraged to coordinate with the event organizers for specific accommodation
+                    arrangements and travel details.</p>
+            </section>
+
+            <section class="contact-info fade-up">
+                <div>
+                    <h3>Naveen Kumar</h3>
+                    <p>Email: naveenkumar@woxsen.edu.in</p>
+                    <p>Phone: +91 7416387771</p>
+                </div>
+                <div>
+                    <h3>Rudra Ayachit</h3>
+                    <p>Email: rudra.ayachit_2027@woxsen.edu.in</p>
+                    <p>Phone: +91 9112269317</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer id="contact">
+        <p>&copy; <span id="year"></span> Innoverse Hackathon. All rights reserved.</p>
+        <p>Contact us: cotd@woxsen.edu.in</p>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+    <script>
+        // Improved scroll animation
+        const observerOptions = {
+            threshold: 0.2,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-up').forEach(element => {
+            observer.observe(element);
+        });
+    </script>
+</body>
+
+</html>
