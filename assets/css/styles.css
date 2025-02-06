@@ -1192,6 +1192,58 @@ nav {
     margin-right: -50vw;
 }
 
+/* Scroll to Top Button */
+.scroll-top-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(45deg, #8A7FC7, #4B3B96, #8A7FC7);
+    border-radius: 50%;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 1000;
+}
+
+/* Show button when user scrolls down */
+.scroll-top-btn.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Hide button when not needed */
+.scroll-top-btn.hide {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+}
+
+/* Button Image */
+.scroll-top-btn img {
+    width: 24px;
+    height: 24px;
+    filter: invert(1); /* Ensures visibility on any background */
+}
+
+/* Hover & Active Effect */
+.scroll-top-btn:hover {
+    background: radial-gradient(circle at center, rgba(75, 59, 150, 0.4), rgba(0, 0, 0, 0.4));
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+    transform: scale(1.1);
+}
+
+.scroll-top-btn:active {
+    transform: scale(0.95);
+}
+
 /* Poster & Brochure Section */
 .poster-brochure-section {
     text-align: center;
