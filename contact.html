@@ -93,23 +93,6 @@
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
 
-        // Form submission handling
-        document.getElementById('contactForm').addEventListener('submit', function (e) {
-            e.preventDefault();
-
-            // Show success message
-            const successMessage = document.querySelector('.success-message');
-            successMessage.style.display = 'block';
-
-            // Reset form
-            this.reset();
-
-            // Hide success message after 5 seconds
-            setTimeout(() => {
-                successMessage.style.display = 'none';
-            }, 5000);
-        });
-
         // Animation for sections on scroll
         const observerOptions = {
             threshold: 0.1,

@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Countdown Timer
-    const targetDate = new Date("February 15, 2025 00:00:00 GMT+0530"); // IST is GMT+5:30
+    const targetDate = new Date("February 15, 2025 00:00:00 GMT+0530");
     const countdownInterval = setInterval(function () {
         const now = new Date().getTime();
         const timeLeft = targetDate - now;
@@ -84,25 +84,25 @@ document.addEventListener("DOMContentLoaded", () => {
     // Modal functionality
     const modal = document.getElementById('qrModal');
     const closeButton = document.querySelector('.close-button');
-    const registerLink = document.querySelector('a.cta'); // Select the anchor tag with class "cta"
+    const registerLink = document.querySelector('a.cta');
 
     if (registerLink) {
         registerLink.addEventListener('click', (e) => {
-            e.preventDefault(); // Prevent the default anchor behavior
-            modal.classList.add('show'); // Add the "show" class to display the modal
+            e.preventDefault();
+            modal.classList.add('show');
         });
     }
 
     if (closeButton) {
         closeButton.addEventListener('click', () => {
-            modal.classList.remove('show'); // Remove the "show" class to hide the modal
+            modal.classList.remove('show');
         });
     }
 
     if (modal) {
         modal.addEventListener('click', (e) => {
             if (e.target === modal) {
-                modal.classList.remove('show'); // Close modal when clicking outside
+                modal.classList.remove('show');
             }
         });
     }

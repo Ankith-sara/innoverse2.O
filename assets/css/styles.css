@@ -317,7 +317,7 @@ nav {
     .hero {
         padding: 6rem 4rem 2rem;
     }
-    
+
     .hero-content {
         max-width: 45%;
     }
@@ -333,7 +333,8 @@ nav {
         gap: 2rem;
     }
 
-    .hero-content, .hero-image-container {
+    .hero-content,
+    .hero-image-container {
         max-width: 100%;
         width: 100%;
     }
@@ -756,11 +757,22 @@ nav {
 /* Countdown Section */
 .countdown {
     background: linear-gradient(135deg, #8A7FC7, #4B3B96);
-    padding: 6rem 2rem;
+    padding: clamp(3rem, 8vh, 6rem) 2rem;
     text-align: center;
+    display: flex;
+    flex-direction: row;
     color: white;
     position: relative;
     overflow: hidden;
+}
+
+.countdown::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(75, 59, 150, 0.4), rgba(0, 0, 0, 0.4));
+    z-index: 1;
+    animation: pulse 10s ease-in-out infinite;
 }
 
 .countdown-container {
@@ -771,60 +783,47 @@ nav {
 }
 
 .countdown h2 {
-    font-size: 3rem;
-    margin-bottom: 3rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: #fff;
-    background: linear-gradient(45deg, #ffffff, #ffb5a7);
-    background-clip: text;
-    -webkit-background-clip: text;
-    animation: glow 1.5s ease-in-out infinite alternate;
-}
-
-.countdown-text {
-    font-size: clamp(1.5rem, 5vw, 2rem);
-    max-width: 90%;
-    margin-bottom: 2rem;
-}
-
-.countdown h2 {
     font-size: clamp(2rem, 6vw, 3rem);
     margin-bottom: 1.5rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: #fff;
+    background: linear-gradient(45deg, #ffffff, #ffb5a7);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
     animation: textShift 2s ease-in-out infinite alternate;
+}
+
+.countdown-text {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+    max-width: 90%;
+    margin: 0 auto 2rem; 
+    line-height: 1.4;
 }
 
 .countdown-timer {
     display: flex;
-    gap: 1rem;
+    gap: clamp(0.5rem, 2vw, 1rem);
     align-items: center;
-    animation: fadeInUp 1s ease-in-out;
-    /* flex-wrap: wrap; */
     justify-content: center;
+    /* flex-wrap: wrap; */
+    animation: fadeInUp 1s ease-in-out;
 }
 
 .countdown-item {
-    font-size: clamp(2rem, 8vw, 4rem);
-    position: relative;
-    text-align: center;
+    flex: 1 1 120px;
+    max-width: 200px;
     background: rgba(255, 255, 255, 0.2);
-    padding: 1rem;
+    padding: clamp(0.75rem, 2vw, 1rem);
     border-radius: 10px;
     backdrop-filter: blur(8px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
-    flex: 1 1 20%;
-    min-width: 120px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
     margin: 0.5rem;
 }
 
 .countdown-item:hover {
-    transform: scale(1.1);
     background: rgba(255, 255, 255, 0.3);
 }
 
@@ -833,25 +832,26 @@ nav {
     font-weight: 800;
     letter-spacing: 2px;
     color: #fff;
-    transition: color 0.3s ease-in-out;
+    line-height: 1.2;
 }
 
 .countdown-item p {
     font-size: clamp(1rem, 3vw, 1.4rem);
     margin-top: 0.5rem;
     letter-spacing: 1px;
+    opacity: 0.9;
 }
 
-.countdown::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(circle at center, rgba(75, 59, 150, 0.4), rgba(0, 0, 0, 0.4));
-    z-index: 1;
-    animation: pulse 10s ease-in-out infinite;
+/* Media Queries */
+@media (max-width: 768px) {
+    .countdown-timer {
+        gap: 0.5rem;
+    }
+    
+    .countdown-item {
+        flex: 1 1 100px;
+        padding: 0.75rem;
+    }
 }
 
 /* Schedule Section */
@@ -1003,7 +1003,7 @@ nav {
     width: 100vw;
     background-color: black;
     color: white;
-    padding: 2rem 10rem;
+    padding: 1.2rem 10rem;
     text-align: center;
     margin: 0;
     position: relative;
@@ -1227,7 +1227,7 @@ nav {
 /* People Section */
 .people {
     padding: 2rem;
-    max-width: 1200px;
+    /* max-width: 1200px; */
     margin: 0 auto;
     opacity: 0;
     transform: translateY(20px);
@@ -1247,22 +1247,21 @@ nav {
 
 .people-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
     gap: 2rem;
 }
 
 .person-card {
-
-    padding: 2rem;
+    padding: 1rem;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
     text-align: center;
-    display: flex;  /* Enables flexbox */
-    flex-direction: column;  /* Align items in a column */
-    align-items: center;  /* Centers items horizontally */
-    justify-content: center; /* Centers items vertically */
-    gap: 0.5rem; /* Adds space between elements */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
 }
 
 .person-img {
@@ -1667,6 +1666,7 @@ footer p {
         opacity: 0;
         transform: translateX(50px);
     }
+
     to {
         opacity: 1;
         transform: translateX(0);
