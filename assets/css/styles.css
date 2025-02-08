@@ -788,7 +788,7 @@ nav {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 2px;
-    background: linear-gradient(45deg, #ffffff, #ffb5a7);
+    background: linear-gradient(45deg, #ffffff, #8A7FC7);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -1414,7 +1414,7 @@ nav {
 }
 
 /* WhatsApp Group Card */
-.info-card a[href*="wa.me"] {
+.info-card a[href*="chat.whatsapp.com"] {
     display: inline-block;
     background: linear-gradient(45deg, #4B3B96, #7C6FC7);
     color: #fff;
@@ -1424,7 +1424,7 @@ nav {
     transition: background 0.3s ease-in-out;
 }
 
-.info-card a[href*="wa.me"]:hover {
+.info-card a[href*="chat.whatsapp.com"]:hover {
     background: linear-gradient(45deg, #7C6FC7, #4B3B96);
 }
 

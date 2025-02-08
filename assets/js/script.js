@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Countdown Timer
-    const targetDate = new Date("February 15, 2025 00:00:00 GMT+0530");
+    const targetDate = new Date("February 28, 2025 00:00:00 GMT+0530");
     const countdownInterval = setInterval(function () {
         const now = new Date().getTime();
         const timeLeft = targetDate - now;
